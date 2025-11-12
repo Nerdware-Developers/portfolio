@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Nerdware — Projects</title>
+	<meta name="description" content="Projects by Nerdware.">
+	<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css?v=3">
+	<link rel="prefetch" href="about.html">
+	<link rel="prefetch" href="contact.html">
+	<link rel="prefetch" href="index.html">
+</head>
+<body>
+	<header class="site-header">
+		<div class="container header-inner">
+			<a class="brand" href="index.html" aria-label="Nerdware Home">
+				<img src="assets/logo.svg?v=3" alt="Nerdware logo">
+				<span>Nerdware</span>
+			</a>
+			<nav class="site-nav" aria-label="Primary">
+				<button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+					<span class="sr-only">Toggle navigation</span>
+					<div class="hamburger"></div>
+				</button>
+				<ul id="nav-menu">
+					<li><a href="index.html">Home</a></li>
+					<li><a class="active" href="projects.html">Projects</a></li>
+					<li><a href="about.html">About Me</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<section class="section">
+			<div class="container">
+				<p class="section-title">► My Projects</p>
+				<h2 class="section-title-large">Portfolio</h2>
+				<div class="grid cards project-grid">
+					<article class="card project">
+						<h3>NerdUI Kit</h3>
+						<p>Composable, accessible React components with theming and tokens.</p>
+						<ul class="tags">
+							<li>React</li><li>TypeScript</li><li>Vite</li>
+						</ul>
+						<div class="actions">
+							<a class="btn btn-primary" href="#" target="_blank" rel="noopener">View Project</a>
+						</div>
+					</article>
+					<article class="card project">
+						<h3>Fluxboard</h3>
+						<p>Real-time kanban with optimistic sync and offline-first storage.</p>
+						<ul class="tags">
+							<li>Node</li><li>WebSocket</li><li>IndexedDB</li>
+						</ul>
+						<div class="actions">
+							<a class="btn btn-primary" href="#" target="_blank" rel="noopener">View Project</a>
+						</div>
+					</article>
+					<article class="card project">
+						<h3>QueryCraft</h3>
+						<p>Data fetching utilities with caching, retries, and typed APIs.</p>
+						<ul class="tags">
+							<li>TS</li><li>Fetch</li><li>DX</li>
+						</ul>
+						<div class="actions">
+							<a class="btn btn-primary" href="#" target="_blank" rel="noopener">View Project</a>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container footer-inner">
+			<a class="footer-logo" href="index.html" aria-label="Nerdware Home">
+				<img src="assets/logo.svg?v=3" alt="Nerdware logo">
+			</a>
+			<div class="social">
+				<a href="#" aria-label="Instagram">📷</a>
+				<a href="#" aria-label="Facebook">👤</a>
+				<a href="#" aria-label="LinkedIn">💼</a>
+			</div>
+		</div>
+	</footer>
+	<script src="js/main.js"></script>
+</body>
+<noscript>Enable JavaScript for the best experience.</noscript>
+</html>
+
+
