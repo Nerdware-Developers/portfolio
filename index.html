@@ -9,7 +9,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css?v=2">
+	<link rel="stylesheet" href="css/styles.css?v=4">
 </head>
 <body>
 	<header class="site-header">
@@ -38,14 +38,16 @@
 			<div class="container hero-inner">
 				<div class="hero-text">
 					<p class="hero-greeting">Hello, My Name Is</p>
-					<h1>Nerdware</h1>
+					<h1>Travis</h1>
+					<p class="typing-text">I'm a <span class="typing" id="typing-text"></span><span class="cursor">|</span></p>
 					<p>A passionate and dedicated developer, driven by the ever-evolving world of technology and its limitless possibilities.</p>
 					<div class="cta-group">
 						<a class="btn btn-primary" href="contact.html">Contact me</a>
 					</div>
 				</div>
 				<div class="hero-image">
-					<div class="hero-image-placeholder">Your Photo</div>
+					<img src="assets/ceo.jpeg" alt="Nerdware Developer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+					<div class="hero-image-placeholder" style="display: none;">Your Photo</div>
 				</div>
 			</div>
 		</section>
@@ -115,6 +117,84 @@
 		</div>
 	</footer>
 	<script src="js/main.js"></script>
+	<script>
+		// Smooth scroll animations
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px 0px -50px 0px'
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.style.opacity = '1';
+					entry.target.style.transform = 'translateY(0)';
+				}
+			});
+		}, observerOptions);
+
+		// Observe service cards
+		document.querySelectorAll('.service-card').forEach(card => {
+			card.style.opacity = '0';
+			card.style.transform = 'translateY(20px)';
+			card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+			observer.observe(card);
+		});
+
+		// Parallax effect for hero image
+		window.addEventListener('scroll', () => {
+			const scrolled = window.pageYOffset;
+			const heroImage = document.querySelector('.hero-image');
+			if (heroImage && scrolled < 500) {
+				heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
+			}
+		});
+
+		// Typing animation
+		const typingElement = document.getElementById('typing-text');
+		const texts = [
+			'Software Developer',
+			'Web Developer',
+			'Mobile App Developer',
+			'UI/UX Designer',
+			'Full Stack Developer',
+			'AI Developer'
+		];
+		let textIndex = 0;
+		let charIndex = 0;
+		let isDeleting = false;
+		let typingSpeed = 100;
+
+		function typeText() {
+			const currentText = texts[textIndex];
+			
+			if (isDeleting) {
+				typingElement.textContent = currentText.substring(0, charIndex - 1);
+				charIndex--;
+				typingSpeed = 50;
+			} else {
+				typingElement.textContent = currentText.substring(0, charIndex + 1);
+				charIndex++;
+				typingSpeed = 100;
+			}
+
+			if (!isDeleting && charIndex === currentText.length) {
+				typingSpeed = 2000; // Pause at end
+				isDeleting = true;
+			} else if (isDeleting && charIndex === 0) {
+				isDeleting = false;
+				textIndex = (textIndex + 1) % texts.length;
+				typingSpeed = 500; // Pause before next word
+			}
+
+			setTimeout(typeText, typingSpeed);
+		}
+
+		// Start typing animation
+		if (typingElement) {
+			typeText();
+		}
+	</script>
 </body>
 <noscript>Enable JavaScript for the best experience.</noscript>
 </html>
